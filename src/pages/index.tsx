@@ -1,23 +1,20 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import { NextPage } from "next";
 import React from "react";
 
+import ImageWrapper from "#root/components/PageIndex/ImageWrapper";
+import Header from "#root/components/PageIndex/Header";
+
 const IndexPage: NextPage = () => {
   return (
-    <Box width="100%" p={[5, 6, 7]}>
-      <Flex flexDirection={["column", "row"]}>
-        <Box>
-          <Button>ABC</Button>
-        </Box>
-        <Box>
-          <Button bg={"green.400"}>DEF</Button>
-        </Box>
+    <Container maxW="xl" centerContent>
+      <Header />
+      <Box>Bienvenid@, escoge tu perfil</Box>
+      <Flex direction="row" align="center" justify="center">
+        <ImageWrapper title="COVID" description="Tengo un caso confirmado cercano" />
+        <ImageWrapper title="PREVENCIÓN" description="Voy a salir y necesito información" />
       </Flex>
-
-      <Box>
-        <Flex></Flex>
-      </Box>
-    </Box>
+    </Container>
   );
 };
 
