@@ -1,25 +1,26 @@
 import { Box, Image } from "@chakra-ui/react";
-import Router from "next/router";
 
 import PersonHealthy from "#root/assets/person-healthy.png";
 import PersonDoctor from "#root/assets/person-nurse.png";
 
-interface IImageWrapper {
+interface IImageModeButton {
   description: string;
   title: string;
+  onClick: () => any;
 }
 
-const ImageWrapper: React.FC<IImageWrapper> = ({ description, title }) => {
+const ImageModeButton: React.FC<IImageModeButton> = ({ description, onClick, title }) => {
   return (
     <Box
-      _hover={{ bg: "#ebedf0" }}
       as="button"
+      onClick={onClick}
+      _hover={{ bg: "#ebedf0" }}
       backgroundColor="gray.100"
-      onClick={() => {
-        Router.push("/landing");
-      }}
       marginTop="2rem"
       padding="2rem 0.75rem"
+      border="2px solid rgba(0, 0, 0, 1)"
+      boxShadow="3px 4px 0px 0px rgba(0, 0, 0, 1)"
+      width="19rem"
     >
       <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
         {title}
@@ -34,4 +35,4 @@ const ImageWrapper: React.FC<IImageWrapper> = ({ description, title }) => {
   );
 };
 
-export default ImageWrapper;
+export default ImageModeButton;

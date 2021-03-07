@@ -1,5 +1,6 @@
 import { Image, Spacer } from "@chakra-ui/react";
 import { CSSProperties } from "react";
+import Router from "next/router";
 
 import Logo from "#root/assets/opencovidperu01.png";
 
@@ -16,7 +17,7 @@ const headerStyles: CSSProperties = {
 const Header: React.FC<IHeader> = () => {
   return (
     <header style={headerStyles}>
-      <Image src={Logo} alt="Segun Adebayo" />
+      <Image src={Logo} alt="Logo" onClick={() => Router.push("/")} />
       <Spacer />
     </header>
   );

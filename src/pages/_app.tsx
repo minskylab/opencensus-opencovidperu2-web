@@ -1,14 +1,18 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
-import { useState } from "react";
+import { Provider } from "react-redux";
 
 import theme from "#root/config/theme";
+import { useStore } from "#root/store";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const [currentMode, setCurrentMode] = useState("");
+  const store = useStore(pageProps.initialReduxState);
+
   return (
     <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} currentMode={currentMode} setCurrentMode={setCurrentMode} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </ChakraProvider>
   );
 };

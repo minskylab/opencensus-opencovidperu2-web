@@ -1,36 +1,41 @@
+import { Container, Flex } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { useState } from "react";
+import { useSelector, shallowEqual } from "react-redux";
 
 import BoxRecomendation from "#root/components/PageLanding/BoxRecomendation";
-import Header from "#root/components/PageLanding/Header";
+import Navbar from "#root/components/PageLanding/Navbar";
 import ImageInfo from "#root/components/PageLanding/ImageInfo";
 import RegionIndicator from "#root/components/PageLanding/RegionIndicator";
 import IAlertInformation from "#root/interfaces/AlertInformation";
 import getIframeUrl from "#root/helpers/getIframeUrl";
 
+import { COVID } from "#root/constants/modes";
+import { IReducer } from "#root/store";
+
 interface ILanding {
   iframeUrl: string;
 }
 
-const Landing: React.FC<ILanding> = ({ iframeUrl }) => {
-  const [currentMode] = useState("");
+const LandingPage: React.FC<ILanding> = ({ iframeUrl }) => {
+  const { modo } = useSelector(({ profile }: IReducer) => profile, shallowEqual);
+
   const regionValue: IAlertInformation = {
     alertLevel: "extremo",
     range: [new Date("01-03-2021"), new Date("14-03-2021")],
   };
 
   return (
-    <div>
-      <Header />
+    <Container maxW="xl" centerContent>
+      <Navbar />
 
-      <div>
+      <Flex direction="row" align="center" justify="space-between">
         <RegionIndicator value={regionValue} />
         <p>{format(new Date(), "EEEE dd-MM-yyyy", { locale: es })}</p>
-      </div>
+      </Flex>
 
       {/* COVID Section  */}
-      {currentMode === "COVID" && (
+      {modo === COVID ? (
         <div>
           <h3>Sobre centros de salud, medicamentos y recursos </h3>
           <div>
@@ -69,8 +74,8 @@ const Landing: React.FC<ILanding> = ({ iframeUrl }) => {
           <div>
             <h4>Información general</h4>
             <iframe
-              allowTransparency
               src={iframeUrl}
+              // allowtransparency
               // frameborder="0"
               width="800"
               height="600"
@@ -86,8 +91,7 @@ const Landing: React.FC<ILanding> = ({ iframeUrl }) => {
             />
           </div>
         </div>
-      )}
-      {currentMode !== "PREVENCIÓN" && (
+      ) : (
         <div>
           <h3>Sobre tu distrito: Lince, Lima, Perú </h3>
           <div>
@@ -99,8 +103,8 @@ const Landing: React.FC<ILanding> = ({ iframeUrl }) => {
           <div>
             <h4>Información general</h4>
             <iframe
-              allowTransparency
               src={iframeUrl}
+              // allowTransparency
               // frameborder="0"
               width="800"
               height="600"
@@ -117,7 +121,7 @@ const Landing: React.FC<ILanding> = ({ iframeUrl }) => {
           </div>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 
@@ -129,4 +133,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default Landing;
+export default LandingPage;
