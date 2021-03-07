@@ -73,9 +73,9 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           />
           <BoxRecomendation
             icon="/assets/icons/cough02.png"
-            title={"Puntos COVID"}
+            title={"Puntos COVID (Laboratorios para prueba)"}
             description={
-              "Acudir a los puntos COVID instalados en los Centros de Salud, la atención es gratuita. Para la evaluación clínica te harán una prueba de descarte"
+              "Acudir a los puntos COVID instalados en los Centros de Salud, la atención es gratuita. Para la evaluación clínica te harán una prueba de descarte."
             }
             url="#"
           />

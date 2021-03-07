@@ -1,6 +1,5 @@
 interface IAlertInformation {
-  alertLevel: string;
-  readonly range: [Date, Date];
+  alertLevel: "moderado" | "alto" | "muy alto" | "extremo";
 }
 
 export default IAlertInformation;

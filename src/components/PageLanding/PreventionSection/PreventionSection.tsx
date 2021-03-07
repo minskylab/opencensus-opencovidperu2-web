@@ -16,26 +16,34 @@ const PreventionSection: React.FC<IPreventionSection> = ({ graphUrl }) => {
         </Box>
         <SimpleGrid columns={2} spacing={10}>
           <BoxRecomendation
-            icon="/assets/icons/cough01.png"
-            title={"Paciente con síntomas leves"}
+            icon="/assets/icons/door-exit.png"
+            title={"Movilización "}
             description={
-              "Si debe salir, utilice mascarilla simple. Trate de estar en un ambiente ventilado y lavarse frecuentemente."
+              "El horario de movilización en tu región es de 4AM  a 7PM. Establecimientos comerciales deben cerrar tres (03) horas antes del inicio del toque de queda."
             }
             url="#"
           />
           <BoxRecomendation
-            icon="/assets/icons/sell-points.png"
-            title={"Mitos sobre el coronavirus"}
+            icon="/assets/icons/form-check.png"
+            title={"Renueva tu Pase Laboral"}
             description={
-              "Si debe salir, utilice mascarilla simple. Trate de estar en un ambiente ventilado y lavarse frecuentemente."
+              "Renueva tu Pase Laboral cada semana para realizar los desplazamientos que requieres durante el estado de emergencia por Covid-19."
             }
             url="#"
           />
           <BoxRecomendation
             icon="/assets/icons/cough02.png"
-            title={"Puntos COVID"}
+            title={"Puntos COVID (Laboratorios para prueba)"}
             description={
-              "Acudir a los puntos COVID instalados en los Centros de Salud, la atención es gratuita. Para la evaluación clínica te harán una prueba de descarte"
+              "Acudir a los puntos COVID instalados en los Centros de Salud, la atención es gratuita. Para la evaluación clínica te harán una prueba de descarte."
+            }
+            url="#"
+          />
+          <BoxRecomendation
+            icon="/assets/icons/passed-sign.png"
+            title={"Solicita por primera vez tu Pase Laboral"}
+            description={
+              "Si necesitas trabajar durante la inmovilización social obligatoria, debes solicitar un Pase Laboral , en caso tus funciones lo requieran."
             }
             url="#"
           />

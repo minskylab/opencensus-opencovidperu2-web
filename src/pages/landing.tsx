@@ -22,15 +22,16 @@ const LandingPage: React.FC<ILanding> = ({ iframeUrl }) => {
 
   const regionValue: IAlertInformation = {
     alertLevel: "extremo",
-    range: [new Date("01-03-2021"), new Date("14-03-2021")],
   };
+
+  const datesRange = ["2021/03/01", "2021/03/14"];
 
   return (
     <Container maxW="container.xl" centerContent>
       <Navbar />
 
       <Flex direction="row" align="center" justify="space-between" width="100%">
-        <RegionIndicator value={regionValue} />
+        <RegionIndicator value={regionValue} range={datesRange} />
         <DatePlaceInformation />
       </Flex>
 
