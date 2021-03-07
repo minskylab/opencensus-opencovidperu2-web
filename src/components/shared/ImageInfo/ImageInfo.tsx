@@ -35,7 +35,9 @@ const ImageInfo: React.FC<IImageInfo> = ({
 
       {total && <CustomBar available={available} total={total} />}
 
-      <h6>{title.toUpperCase()}</h6>
+      <Box as="h6" fontWeight="bold">
+        {title.toUpperCase()}
+      </Box>
 
       {total ? (
         <p>{`${available} ${units} disponibles`}</p>
@@ -46,10 +48,15 @@ const ImageInfo: React.FC<IImageInfo> = ({
       <Box as="p" color="gray.400">
         {`Actualizado hace ${differenceInCalendarDays(new Date(lastUpdated), new Date())} días.`}
       </Box>
-      <Box as="p" color="gray.400">
-        Fuente: <Link href={sourceUrl}>{sourceText}</Link>
+      <Box as="span" color="gray.400">
+        Fuente:{" "}
+        <Link href={sourceUrl}>
+          <Box as="span" textDecoration="underline">
+            {sourceText}
+          </Box>
+        </Link>
       </Box>
-      <Box as="span" ml="2" color="gray.400" fontSize="sm" float="right">
+      <Box as="p" mt="1.5rem" color="gray.400" fontSize="sm" float="right">
         Ver más
       </Box>
     </Box>

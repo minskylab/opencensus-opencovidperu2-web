@@ -86,7 +86,7 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           Información general
         </Box>
         <Box width="800" height="600">
-          <iframe src={graphUrl} width="100%" height="100%"></iframe>
+          <iframe src={graphUrl} width="90%" height="90%"></iframe>
         </Box>
       </Box>
     </Box>
