@@ -34,7 +34,6 @@ const LandingPage: React.FC<ILanding> = ({ iframeUrl }) => {
         <DatePlaceInformation />
       </Flex>
 
-      {/* COVID Section  */}
       {modo === COVID ? (
         <CovidSection graphUrl={iframeUrl} />
       ) : (
