@@ -10,7 +10,7 @@ const IndexPage: NextPage = () => {
     <Container maxW="xl" centerContent>
       <Header />
       <Box>Bienvenid@, escoge tu perfil</Box>
-      <Flex direction="row" align="center" justify="center">
+      <Flex direction="row" align="center" justify="space-around" width="50vw">
         <ImageWrapper title="COVID" description="Tengo un caso confirmado cercano" />
         <ImageWrapper title="PREVENCIÓN" description="Voy a salir y necesito información" />
       </Flex>

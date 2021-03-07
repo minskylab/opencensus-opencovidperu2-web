@@ -1,5 +1,8 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Router from "next/router";
+
+import PersonHealthy from "#root/assets/person-healthy.png";
+import PersonDoctor from "#root/assets/person-nurse.png";
 
 interface IImageWrapper {
   description: string;
@@ -9,13 +12,24 @@ interface IImageWrapper {
 const ImageWrapper: React.FC<IImageWrapper> = ({ description, title }) => {
   return (
     <Box
+      _hover={{ bg: "#ebedf0" }}
       as="button"
+      backgroundColor="gray.100"
       onClick={() => {
         Router.push("/landing");
       }}
+      marginTop="2rem"
+      padding="2rem 0.75rem"
     >
-      <h3>{title}</h3>
+      <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+        {title}
+      </Box>
+
       <p>{description}</p>
+      {title === "PREVENCIÓN" && (
+        <Image alt="Persona sana" src={PersonHealthy} margin="1rem auto" />
+      )}
+      {title === "COVID" && <Image alt="Doctor" src={PersonDoctor} margin="1rem auto" />}
     </Box>
   );
 };
