@@ -1,6 +1,7 @@
 import { Box, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { differenceInCalendarDays } from "date-fns";
+import CustomBar from "./CustomBar";
 
 interface IImageInfo {
   available: number;
@@ -24,10 +25,17 @@ const ImageInfo: React.FC<IImageInfo> = ({
   units = "",
 }) => {
   return (
-    <Box border="2px solid" boxShadow="3px 4px 0px 0px rgba(0, 0, 0, 1)" padding="1.25rem">
+    <Box
+      backgroundColor="#fff"
+      border="2px solid"
+      boxShadow="3px 4px 0px 0px rgba(0, 0, 0, 1)"
+      padding="1.25rem"
+    >
       <Image src={icon} alt={title} />
-      <h6>{title}</h6>
-      {total && <p>{`${available}/${total}`}</p>}
+
+      {total && <CustomBar available={available} total={total} />}
+
+      <h6>{title.toUpperCase()}</h6>
 
       {total ? (
         <p>{`${available} ${units} disponibles`}</p>
@@ -35,11 +43,14 @@ const ImageInfo: React.FC<IImageInfo> = ({
         <p>{`${available} puntos de venta`}</p>
       )}
 
-      <p>
+      <Box as="p" color="gray.400">
         {`Actualizado hace ${differenceInCalendarDays(new Date(lastUpdated), new Date())} días.`}
-      </p>
+      </Box>
+      <Box as="p" color="gray.400">
+        Fuente: <Link href={sourceUrl}>{sourceText}</Link>
+      </Box>
       <Box as="span" ml="2" color="gray.400" fontSize="sm" float="right">
-        <Link href={sourceUrl}>{sourceText}</Link>
+        Ver más
       </Box>
     </Box>
   );

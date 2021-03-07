@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
 
 import BoxRecomendation from "#root/components/shared/BoxRecomendation";
 import ImageInfo from "#root/components/shared/ImageInfo";
@@ -10,7 +10,9 @@ interface ICovidSection {
 const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
   return (
     <Box as="section" width="100%">
-      <h3>Sobre centros de salud, medicamentos y recursos </h3>
+      <Box as="h4" fontSize="1.5rem" margin="2rem 0 1rem 0" fontWeight="bold">
+        Sobre centros de salud, medicamentos y recursos
+      </Box>
       <Flex align="center" justify="space-between" marginTop="2rem">
         <ImageInfo
           icon="/assets/icons/hospital-bed.png"
@@ -48,19 +50,45 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           sourceUrl="#"
         />
       </Flex>
-      <div>
-        <h4>Información general</h4>
-        <iframe src={graphUrl} width="800" height="600"></iframe>
-      </div>
-      <div>
-        <h4>Recomendaciones</h4>
-        <BoxRecomendation
-          title={"Paciente con síntomas leves"}
-          description={
-            "Si debe salir, utilice mascarilla simple. Trate de estar en un ambiente ventilado y lavarse frecuentemente."
-          }
-        />
-      </div>
+      <Box>
+        <Box as="h4" fontSize="1.5rem" margin="2rem 0 1rem 0" fontWeight="bold">
+          Recomendaciones
+        </Box>
+        <SimpleGrid columns={2} spacing={10}>
+          <BoxRecomendation
+            icon="/assets/icons/cough01.png"
+            title={"Paciente con síntomas leves"}
+            description={
+              "Si debe salir, utilice mascarilla simple. Trate de estar en un ambiente ventilado y lavarse frecuentemente."
+            }
+            url="#"
+          />
+          <BoxRecomendation
+            icon="/assets/icons/sell-points.png"
+            title={"Mitos sobre el coronavirus"}
+            description={
+              "Si debe salir, utilice mascarilla simple. Trate de estar en un ambiente ventilado y lavarse frecuentemente."
+            }
+            url="#"
+          />
+          <BoxRecomendation
+            icon="/assets/icons/cough02.png"
+            title={"Puntos COVID"}
+            description={
+              "Acudir a los puntos COVID instalados en los Centros de Salud, la atención es gratuita. Para la evaluación clínica te harán una prueba de descarte"
+            }
+            url="#"
+          />
+        </SimpleGrid>
+      </Box>
+      <Box width="100%">
+        <Box as="h4" fontSize="1.5rem" margin="2rem 0 1rem 0" fontWeight="bold">
+          Información general
+        </Box>
+        <Box width="800" height="600">
+          <iframe src={graphUrl} width="100%" height="100%"></iframe>
+        </Box>
+      </Box>
     </Box>
   );
 };
