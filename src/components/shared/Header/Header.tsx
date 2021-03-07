@@ -17,7 +17,7 @@ const headerStyles: CSSProperties = {
 const Header: React.FC<IHeader> = () => {
   return (
     <header style={headerStyles}>
-      <Image src={Logo} alt="Logo" onClick={() => Router.push("/")} />
+      <Image src={Logo} alt="Logo" cursor="pointer" onClick={() => Router.push("/")} />
       <Spacer />
     </header>
   );
