@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://hasura.opencovid2.tk/v1/graphql"
+documents: "./src/graphql/**/*.graphql"
+generates:
+  src/integration/graphql.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-urql"
+    config:
+      withComponent: true
+      withHooks: true
