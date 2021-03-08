@@ -1,23 +1,40 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Container, Flex } from "@chakra-ui/react";
 import { NextPage } from "next";
+import Router from "next/router";
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import ImageModeButton from "#root/components/shared/ImageModeButton";
+import Header from "#root/components/shared/Header";
+import { COVID, PREVENTION } from "#root/constants/modes";
+import { setModo } from "#root/store/ducks/profile";
 
 const IndexPage: NextPage = () => {
-  return (
-    <Box width="100%" p={[5, 6, 7]}>
-      <Flex flexDirection={["column", "row"]}>
-        <Box>
-          <Button>ABC</Button>
-        </Box>
-        <Box>
-          <Button bg={"green.400"}>DEF</Button>
-        </Box>
-      </Flex>
+  const dispatch = useDispatch();
 
-      <Box>
-        <Flex></Flex>
-      </Box>
-    </Box>
+  return (
+    <Container maxW="xl" centerContent>
+      <Header />
+      <Box>Bienvenid@, escoge tu perfil</Box>
+      <Flex direction="row" align="center" justify="space-around" width="50vw">
+        <ImageModeButton
+          title="COVID"
+          description="Tengo un caso confirmado cercano"
+          onClick={() => {
+            dispatch(setModo(COVID));
+            Router.push("/location");
+          }}
+        />
+        <ImageModeButton
+          title="PREVENCIÓN"
+          description="Voy a salir y necesito información"
+          onClick={() => {
+            dispatch(setModo(PREVENTION));
+            Router.push("/location");
+          }}
+        />
+      </Flex>
+    </Container>
   );
 };
 
