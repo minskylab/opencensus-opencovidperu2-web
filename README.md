@@ -1,3 +1,32 @@
+# opencovidperu2 - web app
+
+Source code of the web application
+
+## Run on local
+
+``` bash
+# Install dependencies
+yarn 
+
+# Start development server
+yarn watch
+```
+
+## Run production code
+
+``` bash
+# Install dependencies
+yarn 
+
+# Build code for prod
+yarn build
+
+# Start server
+yarn start
+
+```
+
+
 [OpenCovid2.0](https://opencovid2.tk), 
 [Metabase](https://metabase.opencovid2.tk),
 [Mockups](https://www.youtube.com/watch?v=R6XS2L7k90U&feature=youtu.be)
