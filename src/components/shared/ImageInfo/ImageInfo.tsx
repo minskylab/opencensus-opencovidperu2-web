@@ -7,6 +7,7 @@ interface IImageInfo {
   available: number;
   icon: string;
   lastUpdated: string;
+  seeMoreUrl?: string;
   sourceText: string;
   sourceUrl: string;
   title: string;
@@ -18,6 +19,7 @@ const ImageInfo: React.FC<IImageInfo> = ({
   available,
   icon,
   lastUpdated,
+  seeMoreUrl,
   sourceText,
   sourceUrl,
   title,
@@ -30,6 +32,7 @@ const ImageInfo: React.FC<IImageInfo> = ({
       border="2px solid"
       boxShadow="3px 4px 0px 0px rgba(0, 0, 0, 1)"
       padding="1.25rem"
+      minHeight="15rem"
     >
       <Image src={icon} alt={title} />
 
@@ -50,15 +53,17 @@ const ImageInfo: React.FC<IImageInfo> = ({
       </Box>
       <Box as="span" color="gray.400">
         Fuente:{" "}
-        <Link href={sourceUrl}>
-          <Box as="span" textDecoration="underline">
-            {sourceText}
+        <Box as="a" textDecoration="underline">
+          <Link href={sourceUrl}>{sourceText}</Link>
+        </Box>
+      </Box>
+      {seeMoreUrl && (
+        <Box as="p" mt="1.5rem" color="gray.400" fontSize="sm" float="right">
+          <Box as="a" textDecoration="underline" target="_blank" rel="noopener noreferrer">
+            <Link href={seeMoreUrl}>Ver más</Link>
           </Box>
-        </Link>
-      </Box>
-      <Box as="p" mt="1.5rem" color="gray.400" fontSize="sm" float="right">
-        Ver más
-      </Box>
+        </Box>
+      )}
     </Box>
   );
 };

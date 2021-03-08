@@ -19,8 +19,9 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           title="CAMAS NO UCI"
           available={72}
           lastUpdated="07/03/2021"
+          seeMoreUrl="/info/camas-no-uci"
           sourceText="MINSA"
-          sourceUrl="#"
+          sourceUrl="http://portal.susalud.gob.pe/seguimiento-del-registro-de-camas-f500-2/"
           total={200}
         />
         <ImageInfo
@@ -28,8 +29,9 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           title="CAMAS UCI"
           available={12}
           lastUpdated="07/03/2021"
+          seeMoreUrl="/info/camas-uci"
           sourceText="MINSA"
-          sourceUrl="#"
+          sourceUrl="http://portal.susalud.gob.pe/seguimiento-del-registro-de-camas-f500-2/"
           total={20}
         />
         <ImageInfo
@@ -37,8 +39,9 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           title="OXIGENO EN HOSPITALES"
           available={20}
           lastUpdated="07/03/2021"
+          seeMoreUrl="/info/oxigeno"
           sourceText="MINSA"
-          sourceUrl="#"
+          sourceUrl="http://portal.susalud.gob.pe/reporte-disponibilidad-oxigeno/"
           total={100}
         />
         <ImageInfo
@@ -47,7 +50,7 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
           available={25}
           lastUpdated="07/03/2021"
           sourceText="oxigenoperu.info"
-          sourceUrl="#"
+          sourceUrl="https://oxigenoperu.info/"
         />
       </Flex>
       <Box>
@@ -85,7 +88,7 @@ const CovidSection: React.FC<ICovidSection> = ({ graphUrl }) => {
         <Box as="h4" fontSize="1.5rem" margin="2rem 0 1rem 0" fontWeight="bold">
           Información general
         </Box>
-        <Box width="800" height="600">
+        <Box width="800" height="600" display="flex" justifyContent="center">
           <iframe src={graphUrl} width="90%" height="90%"></iframe>
         </Box>
       </Box>

@@ -1,6 +1,5 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import BoxRecomendation from "#root/components/shared/BoxRecomendation";
-// import ImageInfo from "#root/components/shared/ImageInfo";
 
 interface IPreventionSection {
   graphUrl: string;
@@ -53,7 +52,7 @@ const PreventionSection: React.FC<IPreventionSection> = ({ graphUrl }) => {
         <Box as="h4" fontSize="1.5rem" margin="2rem 0 1rem 0" fontWeight="bold">
           Información general
         </Box>
-        <Box width="800" height="600">
+        <Box width="800" height="600" display="flex" justifyContent="center">
           <iframe src={graphUrl} width="90%" height="90%"></iframe>
         </Box>
       </Box>
